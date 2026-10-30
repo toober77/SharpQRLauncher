@@ -12,11 +12,11 @@ class LaunchActivity : Activity() {
         try {
             startActivity(Intent(Intent.ACTION_MAIN)
                 .setComponent(ComponentName(TARGET_PKG, TARGET_CLS))
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NO_ANIMATION))
         } catch (e: Exception) {
             Toast.makeText(applicationContext, R.string.not_found, Toast.LENGTH_SHORT).show()
         }
-        finish()
+        finishAndRemoveTask()
         @Suppress("DEPRECATION") overridePendingTransition(0, 0)
     }
     companion object {
