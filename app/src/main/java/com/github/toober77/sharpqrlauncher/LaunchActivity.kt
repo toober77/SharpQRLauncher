@@ -1,7 +1,6 @@
 package com.github.toober77.sharpqrlauncher
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
@@ -22,32 +21,17 @@ import android.widget.Toast
 class LaunchActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val prefs = getSharedPreferences("p", Context.MODE_PRIVATE)
-        when {
-            Settings.canDrawOverlays(this) -> launchWithCurtain()
-            !prefs.getBoolean("asked", false) -> {
-                prefs.edit().putBoolean("asked", true).apply()
-                showSetupDialog()
-            }
-            else -> launchDirect()
-        }
-    }
-
-    private fun showSetupDialog() {
-        AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Dialog_Alert)
-            .setTitle(R.string.setup_title)
-            .setMessage(R.string.setup_msg)
-            .setPositiveButton(R.string.go_settings) { _, _ ->
+        when (intent?.action) {
+            ACTION_PIN -> { requestPin(this); done() }
+            ACTION_OVERLAY -> {
                 try {
                     startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                         Uri.parse("package:$packageName")).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
                 } catch (_: Exception) {}
                 done()
             }
-            .setNeutralButton(R.string.add_shortcut) { _, _ -> requestPin(this); done() }
-            .setNegativeButton(R.string.open_now) { _, _ -> launchDirect() }
-            .setOnCancelListener { done() }
-            .show()
+            else -> if (Settings.canDrawOverlays(this)) launchWithCurtain() else launchDirect()
+        }
     }
 
     private fun startTarget(): Boolean = try {
@@ -86,6 +70,8 @@ class LaunchActivity : Activity() {
     companion object {
         const val TARGET_PKG = "jp.co.sharp.android.qrreader"
         const val TARGET_CLS = "jp.co.sharp.android.qrreader.MainActivity"
+        const val ACTION_PIN = "com.github.toober77.sharpqrlauncher.PIN"
+        const val ACTION_OVERLAY = "com.github.toober77.sharpqrlauncher.OVERLAY"
         const val CURTAIN_MS = 300L
 
         fun targetIntent(): Intent = Intent(Intent.ACTION_MAIN)

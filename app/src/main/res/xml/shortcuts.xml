@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:shortcutId="pin_qr" android:enabled="true" android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/sc_pin_short" android:shortcutLongLabel="@string/sc_pin_long">
+        <intent android:action="com.github.toober77.sharpqrlauncher.PIN"
+            android:targetPackage="com.github.toober77.sharpqrlauncher"
+            android:targetClass="com.github.toober77.sharpqrlauncher.LaunchActivity" />
+    </shortcut>
+    <shortcut android:shortcutId="open_qr" android:enabled="true" android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/sc_open_short" android:shortcutLongLabel="@string/sc_open_short">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.github.toober77.sharpqrlauncher"
+            android:targetClass="com.github.toober77.sharpqrlauncher.LaunchActivity" />
+    </shortcut>
+    <shortcut android:shortcutId="overlay" android:enabled="true" android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/sc_overlay_short" android:shortcutLongLabel="@string/sc_overlay_long">
+        <intent android:action="com.github.toober77.sharpqrlauncher.OVERLAY"
+            android:targetPackage="com.github.toober77.sharpqrlauncher"
+            android:targetClass="com.github.toober77.sharpqrlauncher.LaunchActivity" />
+    </shortcut>
+</shortcuts>

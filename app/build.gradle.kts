@@ -14,8 +14,8 @@ android {
         applicationId = "com.github.toober77.sharpqrlauncher"
         minSdk = 28
         targetSdk = 35
-        versionCode = 3
-        versionName = "1.0.2"
+        versionCode = 4
+        versionName = "1.0.3"
     }
     signingConfigs {
         create("release") {

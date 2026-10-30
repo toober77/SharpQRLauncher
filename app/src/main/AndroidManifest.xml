@@ -11,10 +11,15 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
         </activity>
         <receiver android:name=".QrWidgetProvider" android:exported="true" android:label="@string/widget_label">
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE"/></intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/qr_widget_info"/>
+        </receiver>
+        <receiver android:name=".PinWidgetProvider" android:exported="true" android:label="@string/pin_widget_label">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE"/></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/pin_widget_info"/>
         </receiver>
     </application>
 </manifest>
