@@ -35,3 +35,9 @@ keyPassword=...
 ```
 也可用 `SHARPQR_STORE_FILE`、`SHARPQR_STORE_PASSWORD`、`SHARPQR_KEY_ALIAS`、`SHARPQR_KEY_PASSWORD` 環境變數。
 沒有簽章設定時 release APK 會是未簽章版本。keystore 請勿提交到 repo。
+
+## v1.0.2：避免切換閃爍
+
+- **黑幕（需權限）**：到「設定 → 應用程式 → QR 掃描 → 顯示在其他應用程式上層」開啟。之後點圖示會先蓋全螢幕黑幕約 0.3 秒，再開啟 Sharp QR，遮住切換那一幀。沒權限時會直接開啟 QR 掃描。
+- **直達捷徑**：第一次開啟會跳出設定對話框，可選「加桌面捷徑」。這個捷徑（標籤「QR 掃描」）會直接開 Sharp QR，不經過本 app，可以拖進資料夾。
+- 首次對話框只出現一次；想再加捷徑，可到 App 資訊清除資料後重新開啟。

@@ -3,4 +3,11 @@
     <string name="widget_label">QR 掃描</string>
     <string name="widget_description">點一下開啟 Sharp QR 掃描</string>
     <string name="not_found">找不到 QR 掃描 app</string>
+    <string name="setup_title">首次設定</string>
+    <string name="setup_msg">為避免切換時畫面閃爍，可開啟「顯示在其他應用程式上層」權限，啟動時會先蓋一層黑幕約 0.3 秒。\n\n也可以加入一個直接開啟 Sharp QR 的桌面捷徑（可放進資料夾）。\n\n此對話框只會出現一次；之後若沒權限會直接開啟 QR 掃描。</string>
+    <string name="go_settings">前往設定</string>
+    <string name="add_shortcut">加桌面捷徑</string>
+    <string name="open_now">直接開啟</string>
+    <string name="shortcut_label">QR 掃描</string>
+    <string name="pin_unsupported">此桌面不支援新增捷徑</string>
 </resources>
