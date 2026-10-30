@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Inset keeps the whole stroke (incl. rounded corners) inside the launcher's widget clip. -->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:inset="@dimen/widget_stroke_inset">
+    <shape android:shape="rectangle">
+        <solid android:color="#00000000"/>
+        <stroke android:width="1.5dp" android:color="#4DFFFFFF"/>
+        <corners android:radius="@dimen/widget_corner_radius"/>
+    </shape>
+</inset>
